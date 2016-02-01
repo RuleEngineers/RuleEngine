@@ -84,11 +84,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="RuleRepositoryTest.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="RuleRepositoryTest.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/test/java/com/RuleRepositoryTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="36" column="35" selection-start-line="36" selection-start-column="35" selection-end-line="36" selection-end-column="35" />
+            <state vertical-scroll-proportion="0.3548387">
+              <caret line="38" column="8" selection-start-line="38" selection-start-column="8" selection-end-line="38" selection-end-column="8" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -100,12 +100,25 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/com/MongoOperations.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="15" column="37" selection-start-line="15" selection-start-column="37" selection-end-line="15" selection-end-column="37" />
+              <caret line="45" column="5" selection-start-line="42" selection-start-column="0" selection-end-line="45" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#287#288#0" expanded="true" />
-                <element signature="e#339#340#0" expanded="true" />
-                <element signature="e#419#420#0" expanded="true" />
+                <element signature="e#430#431#0" expanded="true" />
+                <element signature="e#482#483#0" expanded="true" />
+                <element signature="e#521#522#0" expanded="true" />
+                <element signature="e#562#563#0" expanded="true" />
+                <element signature="e#597#598#0" expanded="true" />
+                <element signature="e#644#645#0" expanded="true" />
+                <element signature="e#679#680#0" expanded="true" />
+                <element signature="e#743#744#0" expanded="true" />
+                <element signature="e#779#780#0" expanded="true" />
+                <element signature="e#849#850#0" expanded="true" />
+                <element signature="e#889#890#0" expanded="true" />
+                <element signature="e#949#950#0" expanded="true" />
+                <element signature="e#991#992#0" expanded="true" />
+                <element signature="e#1053#1054#0" expanded="true" />
+                <element signature="e#1095#1096#0" expanded="true" />
+                <element signature="e#1156#1157#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -125,7 +138,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/com/RuleRepository.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="6" column="5" selection-start-line="6" selection-start-column="5" selection-end-line="6" selection-end-column="5" />
+              <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -145,11 +158,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Rule.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Rule.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/Rule.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.16129032">
-              <caret line="5" column="29" selection-start-line="5" selection-start-column="29" selection-end-line="5" selection-end-column="29" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="23" column="25" selection-start-line="23" selection-start-column="25" selection-end-line="23" selection-end-column="25" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -454,11 +467,12 @@
         <option value="$PROJECT_DIR$/src/main/java/com/Rules.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/Main.java" />
         <option value="$PROJECT_DIR$/build.gradle" />
-        <option value="$PROJECT_DIR$/src/main/java/com/RuleRepository.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/ApplicationConfiguration.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/MongoOperation.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/Rule.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/RuleRepositoryTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/MongoOperations.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/RuleRepository.java" />
       </list>
     </option>
   </component>
@@ -714,7 +728,7 @@
   <component name="PropertiesComponent">
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
-    <property name="SearchEverywhereHistoryKey" value="g&#9;ACTION&#9;ActivateGradleToolWindow&#10;gra&#9;ACTION&#9;ActivateGradleToolWindow&#10;grad&#9;ACTION&#9;ActivateGradleToolWindow" />
+    <property name="SearchEverywhereHistoryKey" value="gra&#9;ACTION&#9;ActivateGradleToolWindow&#10;grad&#9;ACTION&#9;ActivateGradleToolWindow&#10;g&#9;ACTION&#9;ActivateGradleToolWindow" />
     <property name="last_opened_file_path" value="$USER_HOME$/IdeaProjects/Rule_Engine" />
   </component>
   <component name="RecentsManager">
@@ -725,7 +739,7 @@
       <recent name="com" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.RuleRepositoryTest.shouldFindAllRules (1)">
+  <component name="RunManager" selected="JUnit.RuleRepositoryTest.shouldFindAllRules">
     <configuration default="false" name="RuleRepositoryTest.shouldFindAllRules" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <module name="rulesEngine" />
@@ -767,7 +781,7 @@
       <envs />
       <method />
     </configuration>
-    <configuration default="false" name="RuleRepositoryTest.shouldFindAllRules (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration default="false" name="RuleRepositoryTest.shouldFindAllRules" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
           <option name="PATTERN" value="com.*" />
@@ -793,7 +807,7 @@
       <patterns />
       <method />
     </configuration>
-    <configuration default="false" name="RuleRepositoryTest (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration default="false" name="RuleRepositoryTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
           <option name="PATTERN" value="com.*" />
@@ -1105,14 +1119,14 @@
     <list size="5">
       <item index="0" class="java.lang.String" itemvalue="JUnit.RuleRepositoryTest.shouldFindAllRules" />
       <item index="1" class="java.lang.String" itemvalue="Application.Main" />
-      <item index="2" class="java.lang.String" itemvalue="JUnit.RuleRepositoryTest.shouldFindAllRules (1)" />
-      <item index="3" class="java.lang.String" itemvalue="JUnit.RuleRepositoryTest (1)" />
+      <item index="2" class="java.lang.String" itemvalue="JUnit.RuleRepositoryTest.shouldFindAllRules" />
+      <item index="3" class="java.lang.String" itemvalue="JUnit.RuleRepositoryTest" />
       <item index="4" class="java.lang.String" itemvalue="Gradle.rulesEngine [build]" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="JUnit.RuleRepositoryTest.shouldFindAllRules (1)" />
-        <item index="1" class="java.lang.String" itemvalue="JUnit.RuleRepositoryTest (1)" />
+        <item index="0" class="java.lang.String" itemvalue="JUnit.RuleRepositoryTest.shouldFindAllRules" />
+        <item index="1" class="java.lang.String" itemvalue="JUnit.RuleRepositoryTest" />
         <item index="2" class="java.lang.String" itemvalue="Gradle.rulesEngine [build]" />
         <item index="3" class="java.lang.String" itemvalue="Application.Main" />
         <item index="4" class="java.lang.String" itemvalue="JUnit.RuleRepositoryTest.shouldFindAllRules" />
@@ -1133,35 +1147,35 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="RuleRepositoryTest_shouldFindAllRules_(1) - 2016.02.01 at 10h 56m 15s.xml">
-      <configuration name="RuleRepositoryTest.shouldFindAllRules (1)" configurationId="JUnit" />
+    <history-entry file="RuleRepositoryTest_shouldFindAllRules - 2016.02.01 at 15h 57m 55s.xml">
+      <configuration name="RuleRepositoryTest.shouldFindAllRules" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="RuleRepositoryTest_shouldFindAllRules_(1) - 2016.02.01 at 10h 58m 29s.xml">
-      <configuration name="RuleRepositoryTest.shouldFindAllRules (1)" configurationId="JUnit" />
+    <history-entry file="RuleRepositoryTest_shouldFindAllRules - 2016.02.01 at 15h 58m 16s.xml">
+      <configuration name="RuleRepositoryTest.shouldFindAllRules" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="RuleRepositoryTest_shouldFindAllRules_(1) - 2016.02.01 at 10h 58m 42s.xml">
-      <configuration name="RuleRepositoryTest.shouldFindAllRules (1)" configurationId="JUnit" />
+    <history-entry file="RuleRepositoryTest_shouldFindAllRules - 2016.02.01 at 16h 08m 07s.xml">
+      <configuration name="RuleRepositoryTest.shouldFindAllRules" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="RuleRepositoryTest_shouldFindAllRules_(1) - 2016.02.01 at 11h 01m 25s.xml">
-      <configuration name="RuleRepositoryTest.shouldFindAllRules (1)" configurationId="JUnit" />
+    <history-entry file="RuleRepositoryTest_shouldFindAllRules - 2016.02.01 at 16h 12m 07s.xml">
+      <configuration name="RuleRepositoryTest.shouldFindAllRules" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="RuleRepositoryTest_shouldFindAllRules_(1) - 2016.02.01 at 11h 04m 11s.xml">
-      <configuration name="RuleRepositoryTest.shouldFindAllRules (1)" configurationId="JUnit" />
+    <history-entry file="RuleRepositoryTest_shouldFindAllRules - 2016.02.01 at 16h 12m 59s.xml">
+      <configuration name="RuleRepositoryTest.shouldFindAllRules" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="RuleRepositoryTest_shouldFindAllRules_(1) - 2016.02.01 at 11h 07m 34s.xml">
-      <configuration name="RuleRepositoryTest.shouldFindAllRules (1)" configurationId="JUnit" />
+    <history-entry file="RuleRepositoryTest_shouldFindAllRules - 2016.02.01 at 16h 15m 19s.xml">
+      <configuration name="RuleRepositoryTest.shouldFindAllRules" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="RuleRepositoryTest_shouldFindAllRules_(1) - 2016.02.01 at 11h 07m 54s.xml">
-      <configuration name="RuleRepositoryTest.shouldFindAllRules (1)" configurationId="JUnit" />
+    <history-entry file="RuleRepositoryTest_shouldFindAllRules - 2016.02.01 at 16h 18m 04s.xml">
+      <configuration name="RuleRepositoryTest.shouldFindAllRules" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="RuleRepositoryTest_shouldFindAllRules_(1) - 2016.02.01 at 11h 09m 02s.xml">
-      <configuration name="RuleRepositoryTest.shouldFindAllRules (1)" configurationId="JUnit" />
+    <history-entry file="RuleRepositoryTest_shouldFindAllRules - 2016.02.01 at 16h 19m 57s.xml">
+      <configuration name="RuleRepositoryTest.shouldFindAllRules" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="RuleRepositoryTest_shouldFindAllRules_(1) - 2016.02.01 at 11h 09m 31s.xml">
-      <configuration name="RuleRepositoryTest.shouldFindAllRules (1)" configurationId="JUnit" />
+    <history-entry file="RuleRepositoryTest_shouldFindAllRules - 2016.02.01 at 16h 21m 14s.xml">
+      <configuration name="RuleRepositoryTest.shouldFindAllRules" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="RuleRepositoryTest_shouldFindAllRules_(1) - 2016.02.01 at 11h 10m 37s.xml">
-      <configuration name="RuleRepositoryTest.shouldFindAllRules (1)" configurationId="JUnit" />
+    <history-entry file="RuleRepositoryTest_shouldFindAllRules - 2016.02.01 at 16h 21m 30s.xml">
+      <configuration name="RuleRepositoryTest.shouldFindAllRules" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="ToolWindowManager">
@@ -1204,13 +1218,13 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32833788" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32833788" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23866856" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32719547" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32970026" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32719547" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1226,7 +1240,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/test/java/com/RuleRepositoryTest.java</url>
-          <line>28</line>
+          <line>26</line>
           <properties />
           <option name="timeStamp" value="2" />
         </line-breakpoint>
@@ -1346,20 +1360,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/RuleRepository.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/Rule.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="6" column="5" selection-start-line="6" selection-start-column="5" selection-end-line="6" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/RuleRepositoryTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="36" column="35" selection-start-line="36" selection-start-column="35" selection-end-line="36" selection-end-column="35" />
+          <caret line="23" column="25" selection-start-line="23" selection-start-column="25" selection-end-line="23" selection-end-column="25" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1369,20 +1373,43 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/com/MongoOperations.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="15" column="37" selection-start-line="15" selection-start-column="37" selection-end-line="15" selection-end-column="37" />
+          <caret line="45" column="5" selection-start-line="42" selection-start-column="0" selection-end-line="45" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#287#288#0" expanded="true" />
-            <element signature="e#339#340#0" expanded="true" />
-            <element signature="e#419#420#0" expanded="true" />
+            <element signature="e#430#431#0" expanded="true" />
+            <element signature="e#482#483#0" expanded="true" />
+            <element signature="e#521#522#0" expanded="true" />
+            <element signature="e#562#563#0" expanded="true" />
+            <element signature="e#597#598#0" expanded="true" />
+            <element signature="e#644#645#0" expanded="true" />
+            <element signature="e#679#680#0" expanded="true" />
+            <element signature="e#743#744#0" expanded="true" />
+            <element signature="e#779#780#0" expanded="true" />
+            <element signature="e#849#850#0" expanded="true" />
+            <element signature="e#889#890#0" expanded="true" />
+            <element signature="e#949#950#0" expanded="true" />
+            <element signature="e#991#992#0" expanded="true" />
+            <element signature="e#1053#1054#0" expanded="true" />
+            <element signature="e#1095#1096#0" expanded="true" />
+            <element signature="e#1156#1157#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/Rule.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/RuleRepository.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.16129032">
-          <caret line="5" column="29" selection-start-line="5" selection-start-column="29" selection-end-line="5" selection-end-column="29" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/RuleRepositoryTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3548387">
+          <caret line="38" column="8" selection-start-line="38" selection-start-column="8" selection-end-line="38" selection-end-column="8" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
