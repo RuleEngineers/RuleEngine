@@ -1,0 +1,20 @@
+group 'rulesEngine'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'java'
+apply plugin: 'idea'
+
+sourceCompatibility = 1.7
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile 'org.springframework:spring-core:4.2.4.RELEASE'
+    compile 'org.springframework.data:spring-data-mongodb:1.8.2.RELEASE'
+    compile 'org.springframework.data:spring-data-commons:1.11.0.RELEASE'
+    compile 'org.springframework:spring-test:4.2.4.RELEASE'
+    //compile 'org.springframework.amqp:spring-rabbit:1.5.3.RELEASE'
+    testCompile group: 'junit', name: 'junit', version: '4.11'
+}
