@@ -25,9 +25,20 @@ public class RuleEngineTest {
     @Test
     public void shouldSaveGivenRule(){
         RuleEngine ruleEngine = new RuleEngine(ruleRepository);
-        Rule expectedRule = new Rule("${sample}","/sample.html");
-        ruleEngine.addRule("${sample}","/sample.html");
-        List<Rule> rules = ruleRepository.findAll();
-        Assert.assertEquals(expectedRule, rules.get(0));
+        //Rule expectedRule = new Rule("10 >= 20","/sample.html");
+        ruleEngine.addRule("10 >= 20","/sample.html");
+        ruleEngine.addRule("5 >= 20","/sample.html");
+        ruleEngine.addRule("3 >= 20","/sample.html");
+        ruleEngine.addRule("15 >= 20","/sample.html");
+
+        List<Boolean> list  = ruleEngine.conditionEvaluate();
+
+        for(Boolean lists : list){
+        Assert.assertFalse(lists);
+        }
+        //List<Rule> rules = ruleRepository.findAll();
+        //Assert.assertEquals(expectedRule, rules.get(0));
     }
+
+
 }
