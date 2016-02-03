@@ -11,8 +11,6 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/test/com/RuleRepositoryTest.class" afterPath="$PROJECT_DIR$/build/classes/test/com/RuleRepositoryTest.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/libs/1-1.0-SNAPSHOT.jar" afterPath="$PROJECT_DIR$/build/libs/1-1.0-SNAPSHOT.jar" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/test-results/binary/test/results.bin" afterPath="$PROJECT_DIR$/build/test-results/binary/test/results.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/RuleEngine.java" afterPath="$PROJECT_DIR$/src/main/java/com/RuleEngine.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/com/RuleEngineTest.java" afterPath="$PROJECT_DIR$/src/test/java/com/RuleEngineTest.java" />
     </list>
     <ignored path="rulesEngine.iws" />
     <ignored path=".idea/workspace.xml" />
