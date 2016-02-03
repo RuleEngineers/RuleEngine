@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.RuleRepositoryTest" tests="1" skipped="0" failures="1" errors="0" timestamp="2016-02-01T10:46:18" hostname="INnnisha.local" time="0.002">
+<testsuite name="com.RuleRepositoryTest" tests="1" skipped="0" failures="1" errors="0" timestamp="2016-02-02T04:55:22" hostname="INnnisha.local" time="0.002">
   <properties/>
   <testcase name="shouldFindAllRules" classname="com.RuleRepositoryTest" time="0.002">
     <failure message="java.lang.IllegalStateException: Failed to load ApplicationContext" type="java.lang.IllegalStateException">java.lang.IllegalStateException: Failed to load ApplicationContext

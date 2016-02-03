@@ -1,8 +1,6 @@
 package com;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.mongodb.core.query.Criteria;
-import org.springframework.data.mongodb.repository.Query;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -17,33 +15,33 @@ public class MongoOperations {
         this.ruleRepository = ruleRepository;
     }
 
-    public void saveDocs(Rule rule) {
-        ruleRepository.save(rule);
-    }
+//    public void saveDocs(Request request) {
+//        ruleRepository.save(request);
+//    }
+//
+//    public List<Request> findDocs(){
+//        return ruleRepository.findAll();
+//    }
+//
+//    public Request queryAgeGender(){
+//        return ruleRepository.findByAgeAndGender(18,"F");
+//    }
+//
+//    public Request queryPathReqId(){
+//        return ruleRepository.findByPathAndReqId("Jeans","6");
+//    }
 
-    public List<Rule> findDocs(){
-        return ruleRepository.findAll();
-    }
-
-    public Rule queryAgeGender(){
-        return ruleRepository.findByAgeAndGender(18,"F");
-    }
-
-    public Rule queryPathRuleId(){
-        return ruleRepository.findByPathAndRuleId("Jeans","6");
-    }
-
-    public List<Rule> queryAgeLower(){
-        return ruleRepository.findByAgeLowerThan(40);
-    }
-
-    public List<Rule> queryAgeGreater(){
-        return ruleRepository.findByAgeGreaterThan(20);
-    }
-
-    public List<Rule> queryAgeBetween(){
-        return ruleRepository.findByAgeBetween(15,40);
-    }
+//    public List<Request> queryAgeLower(){
+//        return ruleRepository.findByAgeLowerThan(40);
+//    }
+//
+//    public List<Request> queryAgeGreater(){
+//        return ruleRepository.findByAgeGreaterThan(20);
+//    }
+//
+//    public List<Request> queryAgeBetween(){
+//        return ruleRepository.findByAgeBetween(15,40);
+//    }
 
 
 

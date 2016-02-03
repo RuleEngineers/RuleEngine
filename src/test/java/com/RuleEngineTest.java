@@ -1,6 +1,6 @@
 package com;
 
-import junit.framework.Assert;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -8,16 +8,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import java.util.Date;
 import java.util.List;
-
-import static junit.framework.TestCase.assertEquals;
 
 @ContextConfiguration(classes = {ApplicationConfiguration.class})
 @RunWith(SpringJUnit4ClassRunner.class)
-public class RuleRepositoryTest {
-
-    int count = 0;
+public class RuleEngineTest {
 
     @Autowired
     RuleRepository ruleRepository;
@@ -28,10 +23,11 @@ public class RuleRepositoryTest {
     }
 
     @Test
-    public void shouldFindAllRules() {
-        ruleRepository.save(new Rule("${age}>30", "/xyz.html"));
-        ruleRepository.save(new Rule("${city}==abc", "/xyz.html"));
+    public void shouldSaveGivenRule(){
+        RuleEngine ruleEngine = new RuleEngine(ruleRepository);
+        Rule expectedRule = new Rule("${sample}","/sample.html");
+        ruleEngine.addRule("${sample}","/sample.html");
         List<Rule> rules = ruleRepository.findAll();
-        assertEquals(2, rules.size());
+        Assert.assertEquals(expectedRule, rules.get(0));
     }
 }
