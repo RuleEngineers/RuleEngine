@@ -27,7 +27,7 @@ public class RuleEngine {
 
     public ResponseUrl conditionEvaluate() {
         List<Rule> rules = ruleRepository.findAll();
-        //List<Boolean> list  = new ArrayList();
+
 
 
         for (Rule rule : rules) {
