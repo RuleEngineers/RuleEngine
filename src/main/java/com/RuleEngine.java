@@ -41,4 +41,18 @@ public class RuleEngine {
     }
 
 
+    public ResponseUrl dateEvaluate() {
+
+        List<Rule> rules = ruleRepository.findAll();
+        for (Rule rule : rules) {
+            String[] dates = rule.condition.split(";");
+            //String reqDate = dates[0].parse
+//            if() {
+//                return new ResponseUrl(rule.outputPath, rule);
+//
+//            }
+        }
+        return null;
+
+    }
 }

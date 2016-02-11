@@ -9,8 +9,8 @@ import java.util.List;
 @Repository
 public interface RuleRepository extends MongoRepository<Rule,String> {
 
-    //public Request findByAgeAndGender(Integer age, String gender);
-    //public Request findByPathAndReqId(String path, String ruleId);
+//    public Request findByAgeAndGender(Integer age, String gender);
+//    public Request findByPathAndReqId(String path, String ruleId);
 //    public List<Request> findByAgeBetween(Integer lowAge, Integer highAge);
 //    public List<Request> findByAgeGreaterThan(Integer age);
 //    public List<Request> findByAgeLowerThan(Integer age);
