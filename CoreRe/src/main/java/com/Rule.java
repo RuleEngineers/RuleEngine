@@ -13,6 +13,9 @@ public class Rule {
     String condition;
     String outputPath;
 
+    public Rule() {
+
+    }
 
     public Rule(String condition, String outputPath) {
         this.condition = condition;

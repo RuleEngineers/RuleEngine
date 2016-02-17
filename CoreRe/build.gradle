@@ -18,18 +18,12 @@ dependencies {
     compile 'org.springframework:spring-test:4.2.4.RELEASE'
     compile 'org.apache.commons:commons-lang3:3.0'
     compile 'org.codehaus.groovy:groovy-all:2.4.4'
-    compile 'org.apache.tomcat.embed:tomcat-embed-core:9.0.0.M1'
-    compile 'org.apache.tomcat.embed:tomcat-embed-logging-juli:9.0.0.M1'
-    compile 'org.apache.tomcat.embed:tomcat-embed-jasper:9.0.0.M1'
-    compile 'org.apache.tomcat:tomcat-util:7.0.41'
-    compile 'org.apache.tomcat.embed:tomcat-embed-core:7.0.41'
+    compile 'org.springframework:spring-webmvc:4.2.4.RELEASE'
     testCompile group: 'junit', name: 'junit', version: '4.11'
+
 }
 
-//task(selectServer, dependsOn: 'classes', type: JavaExec) {
-//    main = 'com.Main'
-//    classpath = sourceSets.main.runtimeClasspath
-//    standardInput= System.in
-//}
-//
-//defaultTasks 'selectServer'
+jar {
+    from { configurations.compile.collect {it.isDirectory() ? it : zipTree(it)}}
+}
+

@@ -9,11 +9,10 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import java.util.*;
-import java.util.List;
 
 @ContextConfiguration(classes = {ApplicationConfiguration.class})
 @RunWith(SpringJUnit4ClassRunner.class)
-public class RuleEngineTest {
+public class RuleEngineServiceTest {
 
     @Autowired
     RuleRepository ruleRepository;
@@ -28,17 +27,17 @@ public class RuleEngineTest {
         Date date=new Date();
         Date date1 = new Date(94, 12, 16);
         Date date2 = new Date(94, 03, 16);
-        RuleEngine ruleEngine = new RuleEngine(ruleRepository);
+        RuleEngineService ruleEngineService = new RuleEngineService(ruleRepository);
         Request request=new Request("1","/nisha",date,18,"F","Bangalore");
-//        ruleEngine.addRule(request.age+">30","/saree.html");
-//        ruleEngine.addRule(request.age+"<20"+ "&&" +request.age+"<30","/kurta.html");
+//        ruleEngineService.addRule(request.age+">30","/saree.html");
+//        ruleEngineService.addRule(request.age+"<20"+ "&&" +request.age+"<30","/kurta.html");
 
-        ruleEngine.addRule(request.date+ ";" +date1+ ";" +date2,"/season.html");
+        ruleEngineService.addRule(request.date+ ";" +date1+ ";" +date2,"/season.html");
 
 
-       // ResponseUrl responseUrl = ruleEngine.conditionEvaluate();
+       // ResponseUrl responseUrl = ruleEngineService.conditionEvaluate();
         //Rule expected=new Rule(request.age+"<20","/kurta.html");
-        ResponseUrl responseUrl = ruleEngine.dateEvaluate();
+        ResponseUrl responseUrl = ruleEngineService.dateEvaluate();
 
 
 

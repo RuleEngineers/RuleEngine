@@ -9,13 +9,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Component
-public class RuleEngine {
+public class RuleEngineService {
 
 
     private RuleRepository ruleRepository;
 
     @Autowired
-    public RuleEngine(RuleRepository ruleRepository) {
+    public RuleEngineService(RuleRepository ruleRepository) {
         this.ruleRepository = ruleRepository;
 
     }
