@@ -24,6 +24,11 @@ public class RuleEngineService {
         ruleRepository.save(new Rule(condition, outputUrl));
     }
 
+    public void deleteRule(String ruleId){
+        ruleRepository.deleteByRuleId(ruleId);
+        return;
+    }
+
 
     public ResponseUrl conditionEvaluate() {
         List<Rule> rules = ruleRepository.findAll();
@@ -54,5 +59,9 @@ public class RuleEngineService {
         }
         return null;
 
+    }
+
+    public List<Rule> listRules() {
+        return ruleRepository.findAll();
     }
 }

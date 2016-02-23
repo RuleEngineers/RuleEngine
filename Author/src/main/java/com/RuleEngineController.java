@@ -2,13 +2,14 @@ package com;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+
+import java.util.List;
 
 @Controller
 @RequestMapping("/api")
+@EnableWebMvc
 public class RuleEngineController {
 
     private RuleEngineService ruleEngineService;
@@ -26,5 +27,21 @@ public class RuleEngineController {
         ruleEngineService.addRule(rule.condition, rule.outputPath);
         return "success";
     }
+
+    @RequestMapping(value = "/rule/{id}", method = RequestMethod.DELETE)
+    public String deleteRule(@PathVariable String id) {
+        ruleEngineService.deleteRule(id);
+        return "deleted";
+
+    }
+
+    @RequestMapping(value = "/rule", method = RequestMethod.GET)
+    public @ResponseBody List<Rule> listRule(){
+
+        return ruleEngineService.listRules();
+
+    }
+
+
 
 }

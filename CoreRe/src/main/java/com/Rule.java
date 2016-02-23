@@ -7,6 +7,30 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Document(collection = "rules")
 public class Rule {
 
+    public String getRuleId() {
+        return ruleId;
+    }
+
+    public void setRuleId(String ruleId) {
+        this.ruleId = ruleId;
+    }
+
+    public String getCondition() {
+        return condition;
+    }
+
+    public void setCondition(String condition) {
+        this.condition = condition;
+    }
+
+    public String getOutputPath() {
+        return outputPath;
+    }
+
+    public void setOutputPath(String outputPath) {
+        this.outputPath = outputPath;
+    }
+
     @Id
     String ruleId;
 

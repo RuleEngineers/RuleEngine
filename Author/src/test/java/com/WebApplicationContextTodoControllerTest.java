@@ -1,7 +1,7 @@
 //package com;
 //
 //import com.TestContext;
-//import com.TodoService;
+//import com.Main;
 //import com.WebAppContext;
 //import org.junit.Before;
 //import org.junit.Test;
@@ -24,7 +24,7 @@
 //    private MockMvc mockMvc;
 //
 //    @Autowired
-//    private TodoService todoServiceMock;
+//    private Main todoServiceMock;
 //
 //    @Autowired
 //    private WebApplicationContext webApplicationContext;

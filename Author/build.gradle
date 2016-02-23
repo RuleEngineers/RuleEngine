@@ -23,13 +23,15 @@ dependencies {
     compile 'org.apache.tomcat:tomcat-util:7.0.41'
     compile 'org.apache.tomcat.embed:tomcat-embed-core:7.0.41'
     compile 'org.apache.tomcat:tomcat-catalina:7.0.4'
-    compile 'org.apache.tomcat.embed:tomcat-embed-core:9.0.0.M1'
+    compile 'org.apache.tomcat.embed:tomcat-embed-core:8.0.30'
     compile 'org.mockito:mockito-all:1.10.19'
     compile 'org.springframework:spring-webmvc:4.2.4.RELEASE'
     compile 'org.springframework:spring-test:4.2.3.RELEASE'
     compile 'commons-logging:commons-logging:1.1.1'
     compile 'org.codehaus.jackson:jackson-mapper-asl:1.5.0'
+    compile 'org.codehaus.jackson:jackson-core-asl:1.9.0'
     compile 'com.fasterxml.jackson.core:jackson-databind:2.1.0'
+    compile 'com.fasterxml.jackson.core:jackson-annotations:2.7.0'
     compile 'com.google.code.gson:gson:1.7.2'
 
 
@@ -42,6 +44,6 @@ dependencies {
 jar {
     from { configurations.compile.collect {it.isDirectory() ? it : zipTree(it)}}
     manifest {
-        attributes 'TodoService-Class': 'com.TodoService'
+        attributes 'Main-Class': 'com.Main'
     }
 }

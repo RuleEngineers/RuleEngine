@@ -14,6 +14,7 @@ public interface RuleRepository extends MongoRepository<Rule,String> {
 //    public List<Request> findByAgeBetween(Integer lowAge, Integer highAge);
 //    public List<Request> findByAgeGreaterThan(Integer age);
 //    public List<Request> findByAgeLowerThan(Integer age);
+    public String deleteByRuleId(String ruleId);
 
 
 }
