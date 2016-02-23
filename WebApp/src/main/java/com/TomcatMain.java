@@ -30,7 +30,7 @@ public class TomcatMain {
 
         DispatcherServlet dispatcher = new DispatcherServlet(context);
         Tomcat.addServlet(rootCtx, "SpringMVC", dispatcher);
-        rootCtx.addServletMapping("/", "SpringMVC");
+        rootCtx.addServletMapping("/*", "SpringMVC");
 
 
         tomcat.start();

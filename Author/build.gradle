@@ -6,7 +6,7 @@ apply plugin: 'war'
 apply plugin: 'idea'
 apply plugin: 'groovy'
 
-sourceCompatibility = 1.8
+sourceCompatibility = 1.7
 
 repositories {
     mavenCentral()

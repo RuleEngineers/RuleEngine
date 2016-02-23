@@ -24,6 +24,7 @@ dependencies {
     compile 'org.apache.tomcat.embed:tomcat-embed-core:7.0.41'
     compile 'org.apache.tomcat:tomcat-catalina:7.0.4'
     compile 'org.apache.tomcat.embed:tomcat-embed-core:8.0.30'
+    compile 'org.codehaus.groovy:groovy-all:2.4.4'
     compile 'org.mockito:mockito-all:1.10.19'
     compile 'org.springframework:spring-webmvc:4.2.4.RELEASE'
     compile 'org.springframework:spring-test:4.2.3.RELEASE'

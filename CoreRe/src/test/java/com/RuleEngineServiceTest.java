@@ -41,21 +41,21 @@ public class RuleEngineServiceTest {
 
 
 
-       // ResponseUrl responseUrl = ruleEngineService.conditionEvaluate();
+       ResponseUrl responseUrl = ruleEngineService.conditionEvaluate();
         //Rule expected=new Rule(request.age+"<20","/kurta.html");
-        ResponseUrl responseUrl = ruleEngineService.dateEvaluate();
+        //ResponseUrl responseUrl = ruleEngineService.dateEvaluate();
 
 
 
-         //Assert.assertEquals("/kurta.html",responseUrl.outputPath);
+         Assert.assertEquals("/kurta.html",responseUrl.outputPath);
         //Assert.assertEquals(expected,responseUrl.matchedRule);
-        List<Rule> rules = ruleRepository.findAll();
-        for(Rule rule : rules){
-            id = rule.ruleId;
-        }
-        ruleEngineService.deleteRule(id);
-        List<Rule> Rules = ruleRepository.findAll();
-        assertEquals(1, Rules.size());
+//        List<Rule> rules = ruleRepository.findAll();
+//        for(Rule rule : rules){
+//            id = rule.ruleId;
+//        }
+//        ruleEngineService.deleteRule(id);
+//        List<Rule> Rules = ruleRepository.findAll();
+//        assertEquals(1, Rules.size());
         //Assert.assertEquals("");
 
 
