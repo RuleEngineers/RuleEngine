@@ -3,4 +3,6 @@ include 'Author'
 findProject(':Author')?.name = 'author'
 include 'CoreRE'
 findProject(':CoreRE')?.name = 'core'
+include 'WebApp'
+include 'WebApp'
 
