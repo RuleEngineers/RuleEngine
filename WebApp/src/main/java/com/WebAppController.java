@@ -22,25 +22,11 @@ public class WebAppController {
         this.ruleEngineService = ruleEngineService;
     }
 
-//    @RequestMapping(value = "/res", method = RequestMethod.POST)
-//    public String addRule(@RequestBody Rule rule) {
-//        System.out.printf("Inside controller..");
-//        ruleEngineService.addRule(rule.condition, rule.outputPath);
-//        return "success";
-//    }
-//
-//    @RequestMapping(value = "/rule/{id}", method = RequestMethod.DELETE)
-//    public String deleteRule(@PathVariable String id) {
-//        ruleEngineService.deleteRule(id);
-//        return "deleted";
-//
-//    }
 
-    @RequestMapping(value = "/res", method = RequestMethod.GET)
-    public @ResponseBody ModelAndView returnRes(){
-        String path= ruleEngineService.conditionEvaluate().outputPath;
-        //String redirectUrl = path;
-        //return "redirect:" + redirectUrl;
+
+    @RequestMapping(value = "/res/{req}", method = RequestMethod.GET)
+    public @ResponseBody ModelAndView returnRes(@PathVariable Request req){
+        String path= ruleEngineService.conditionEvaluate(req).outputPath;
         return new ModelAndView("redirect:localhost" + path);
 
 
