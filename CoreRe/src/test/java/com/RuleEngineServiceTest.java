@@ -31,7 +31,7 @@ public class RuleEngineServiceTest {
         Date date1 = new Date(94, 12, 16);
         Date date2 = new Date(94, 03, 16);
         RuleEngineService ruleEngineService = new RuleEngineService(ruleRepository);
-        Request request=new Request("1","/abc",date,18,"F","Delhi");
+        Request request=new Request("/abc",18,"F","Delhi");
         ruleEngineService.addRule("{age}>15 && {age}<10","/saree.html");
        // ruleEngineService.addRule("{age}<30 || {age}<10","/dress.html");
         //ruleEngineService.addRule("{age}>35","/dupatta.html");
@@ -67,6 +67,22 @@ public class RuleEngineServiceTest {
 
 
     }
+
+
+    @Test
+    public void shouldEvaluateRules(){
+        RuleEngineService ruleEngineService = new RuleEngineService(ruleRepository);
+        ruleEngineService.addRule("{age}>10", "/kurta.html");
+        ruleEngineService.addRule("{age}<10", "/saree.html");
+        ruleEngineService.addRule("{age}<10 && {city}.equals('xyz')", "/abc.html");
+        ruleEngineService.addRule("{city}.equals('delhi')", "/xyz.html");
+
+        Request request1 = new Request("", 10, "", "delhi");
+        Request request2 = new Request("", 40, "", "abc");
+        Assert.assertEquals("/xyz.html", ruleEngineService.conditionEvaluate(request1).outputPath);
+        Assert.assertEquals("/kurta.html", ruleEngineService.conditionEvaluate(request2).outputPath);
+    }
+
 
 
 

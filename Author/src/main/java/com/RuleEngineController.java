@@ -23,7 +23,6 @@ public class RuleEngineController {
 
     @RequestMapping(value = "/rule", method = RequestMethod.POST)
     public String addRule(@RequestBody Rule rule) {
-        System.out.printf("Inside controller..");
         ruleEngineService.addRule(rule.condition, rule.outputPath);
         return "success";
     }

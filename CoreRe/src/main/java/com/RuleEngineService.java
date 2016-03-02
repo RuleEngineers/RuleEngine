@@ -24,13 +24,14 @@ public class RuleEngineService {
         this.ruleRepository = ruleRepository;
 
     }
+
     //To add and save a new rule
     public void addRule(String condition, String outputUrl) {
         ruleRepository.save(new Rule(condition, outputUrl));
     }
 
     //To delete rule
-    public void deleteRule(String ruleId){
+    public void deleteRule(String ruleId) {
         ruleRepository.deleteByRuleId(ruleId);
         return;
     }
@@ -40,15 +41,13 @@ public class RuleEngineService {
         try {
 
             List<Rule> rules = ruleRepository.findAll();
-            //String param = "";
-            //int i = 0;
-
+            
             //Iterates through all the saved rules
             for (Rule rule : rules) {
                 int i = 0;
 
                 List<String> rulewithvariable = new ArrayList<String>();//find variables to be replaced
-                List<String> param=new ArrayList<String>();//find the actual object attribute to be replaced
+                List<String> param = new ArrayList<String>();//find the actual object attribute to be replaced
 
                 //Pattern Matching for the variable to be replaced
                 Pattern regex = Pattern.compile("\\{(.*?)\\}");
@@ -58,11 +57,10 @@ public class RuleEngineService {
                 }
 
                 //To store the request attribute values
-                Object value[]=new Object[rulewithvariable.size()];
+                Object reqAttributeValue[] = new Object[rulewithvariable.size()];
 
                 //Actual Replacement
                 for (String str : rulewithvariable) {
-                    System.out.println(str);
 
                     //Find value of the attribute
                     for (Field f : req.getClass().getDeclaredFields()) {
@@ -71,7 +69,7 @@ public class RuleEngineService {
                             param.add(rulewithvariable.get(i));
                             Class request1 = req.getClass();
                             Field f1 = request1.getDeclaredField(param.get(i));
-                            value[i] = f1.get(req);
+                            reqAttributeValue[i] = f1.get(req);
                             break;
                         }
                     }
@@ -80,12 +78,12 @@ public class RuleEngineService {
                     for (String str1 : rulewithvariable) {
 
                         //Escaping the string for eval.me
-                        if (value[i] instanceof String) {
+                        if (reqAttributeValue[i] instanceof String) {
 
-                            rule.condition = rule.condition.replace("{" + rulewithvariable.get(i) + "}", "\'" + value[i].toString() + "\'");
+                            rule.condition = rule.condition.replace("{" + rulewithvariable.get(i) + "}", "\'" + reqAttributeValue[i].toString() + "\'");
 
                         } else {
-                            rule.condition = rule.condition.replace("{" + rulewithvariable.get(i) + "}", value[i].toString());
+                            rule.condition = rule.condition.replace("{" + rulewithvariable.get(i) + "}", reqAttributeValue[i].toString());
 
                         }
 
@@ -95,11 +93,11 @@ public class RuleEngineService {
                     i++;
                 }
 
-
-                    //Evaluation of the rule
-                    if ((Boolean) (Eval.me(rule.condition)).equals(true)) {
-                        return new ResponseUrl(rule.outputPath, rule);
-                    }
+                System.out.println(rule.condition);
+                //Evaluation of the rule
+                if ((Boolean) (Eval.me(rule.condition)).equals(true)) {
+                    return new ResponseUrl(rule.outputPath);
+                }
 
 
             }
@@ -107,29 +105,11 @@ public class RuleEngineService {
         } catch (Exception e) {
 
         }
-        return null;
-    }
-
-
-
-
-
-    public ResponseUrl dateEvaluate() {
-
-        List<Rule> rules = ruleRepository.findAll();
-        for (Rule rule : rules) {
-            String[] dates = rule.condition.split(";");
-            //String reqDate = dates[0].parse
-//            if() {
-//                return new ResponseUrl(rule.outputPath, rule);
-//
-//            }
-        }
-        return null;
+        return new ResponseUrl("/default.html");
 
     }
-
     public List<Rule> listRules() {
         return ruleRepository.findAll();
     }
 }
+
