@@ -25,89 +25,109 @@ public class RuleEngineService {
 
     }
 
-    //To add and save a new rule
+
     public void addRule(String condition, String outputUrl) {
         ruleRepository.save(new Rule(condition, outputUrl));
     }
 
-    //To delete rule
+
     public void deleteRule(String ruleId) {
         ruleRepository.deleteByRuleId(ruleId);
         return;
     }
 
-    //Evaluates Condition of rule saved
+
     public ResponseUrl conditionEvaluate(Request req) {
         try {
 
             List<Rule> rules = ruleRepository.findAll();
-            
-            //Iterates through all the saved rules
             for (Rule rule : rules) {
-                int i = 0;
-
-                List<String> rulewithvariable = new ArrayList<String>();//find variables to be replaced
-                List<String> param = new ArrayList<String>();//find the actual object attribute to be replaced
-
-                //Pattern Matching for the variable to be replaced
-                Pattern regex = Pattern.compile("\\{(.*?)\\}");
-                Matcher regexMatcher = regex.matcher(rule.condition);
-                while (regexMatcher.find()) {
-                    rulewithvariable.add(regexMatcher.group(1));
-                }
-
-                //To store the request attribute values
+                int next = 0;
+                List<String> rulewithvariable = new ArrayList<String>();
+                List<String> param = new ArrayList<String>();
+                rulewithvariable = matchRuleVariable(rule,rulewithvariable);
                 Object reqAttributeValue[] = new Object[rulewithvariable.size()];
-
-                //Actual Replacement
-                for (String str : rulewithvariable) {
-
-                    //Find value of the attribute
-                    for (Field f : req.getClass().getDeclaredFields()) {
-
-                        if (rulewithvariable.get(i).equals(f.getName())) {
-                            param.add(rulewithvariable.get(i));
-                            Class request1 = req.getClass();
-                            Field f1 = request1.getDeclaredField(param.get(i));
-                            reqAttributeValue[i] = f1.get(req);
-                            break;
-                        }
-                    }
-
-                    //Replace value of the attribute in the condition
-                    for (String str1 : rulewithvariable) {
-
-                        //Escaping the string for eval.me
-                        if (reqAttributeValue[i] instanceof String) {
-
-                            rule.condition = rule.condition.replace("{" + rulewithvariable.get(i) + "}", "\'" + reqAttributeValue[i].toString() + "\'");
-
-                        } else {
-                            rule.condition = rule.condition.replace("{" + rulewithvariable.get(i) + "}", reqAttributeValue[i].toString());
-
-                        }
-
-                    }
-                    //System.out.println(rule.condition);
-
-                    i++;
-                }
-
-                System.out.println(rule.condition);
-                //Evaluation of the rule
-                if ((Boolean) (Eval.me(rule.condition)).equals(true)) {
+                reqAttributeValue = findAttributeValue(rulewithvariable, reqAttributeValue, param, req, rule, next);
+                Boolean result = evaluate(rule);
+                if (result.equals(true)) {
                     return new ResponseUrl(rule.outputPath);
                 }
+            }
+        }catch (Exception e) {
+        }
+        return new ResponseUrl("/default.html");
+    }
 
+    private List<String> matchRuleVariable(Rule rule, List<String> rulewithvariable) {
+        //Pattern Matching for the variable to be replaced
+        Pattern regex = Pattern.compile("\\{(.*?)\\}");
+        Matcher regexMatcher = regex.matcher(rule.condition);
+        while (regexMatcher.find()) {
+            rulewithvariable.add(regexMatcher.group(1));
+        }
+        return rulewithvariable;
+    }
+
+    private Object[] findAttributeValue(List<String> rulewithvariable, Object[] reqAttributeValue, List<String> param, Request req, Rule rule, int next) {
+
+        try {
+            for (String str : rulewithvariable) {
+
+
+                for (Field f : req.getClass().getDeclaredFields()) {
+
+                    if (rulewithvariable.get(next).equals(f.getName())) {
+                        param.add(rulewithvariable.get(next));
+                        Class request1 = req.getClass();
+                        Field f1 = request1.getDeclaredField(param.get(next));
+                        reqAttributeValue[next] = f1.get(req);
+                        break;
+                    }
+                }
+
+                rule.condition = replaceAttributeValue(rulewithvariable, reqAttributeValue, rule, next);
+
+
+                next++;
+            }
+
+        }
+        catch(Exception e)
+        {
+    }
+    return reqAttributeValue;
+}
+
+
+    private String replaceAttributeValue(List<String> rulewithvariable, Object[] reqAttributeValue, Rule rule,int next) {
+
+        for (String variable : rulewithvariable) {
+
+
+            if (reqAttributeValue[next] instanceof String) {
+
+                rule.condition = rule.condition.replace("{" + rulewithvariable.get(next) + "}", "\'" + reqAttributeValue[next].toString() + "\'");
+
+            } else {
+                rule.condition = rule.condition.replace("{" + rulewithvariable.get(next) + "}", reqAttributeValue[next].toString());
 
             }
 
-        } catch (Exception e) {
-
         }
-        return new ResponseUrl("/default.html");
-
+        return rule.condition;
     }
+
+
+    private Boolean evaluate(Rule rule) {
+
+
+                if ((Boolean) (Eval.me(rule.condition)).equals(true)) {
+                    return true;
+                }
+        return false;
+    }
+
+
     public List<Rule> listRules() {
         return ruleRepository.findAll();
     }

@@ -30,13 +30,6 @@ public class WebAppController {
     }
 
 
-
-//    @RequestMapping(value = "/res/{}", method = RequestMethod.GET)
-//    public @ResponseBody ModelAndView returnRes(@PathVariable Request req){
-//        String path= ruleEngineService.conditionEvaluate(req).outputPath;
-//        return new ModelAndView("redirect:localhost" + path);
-//    }
-
     @RequestMapping(value = {"/res"}, method = RequestMethod.GET)
     public @ResponseBody ModelAndView returnRes(@RequestParam Map<String,String> allRequestParams, ModelMap model) {
         Gson gson = new Gson();
@@ -46,14 +39,5 @@ public class WebAppController {
         String path= ruleEngineService.conditionEvaluate(request).outputPath;
         path="http://localhost"+path;
         return new ModelAndView("redirect:" + path);
-
     }
-
-
-
-
-
-
-
-
 }
