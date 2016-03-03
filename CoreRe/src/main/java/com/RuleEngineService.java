@@ -59,7 +59,6 @@ public class RuleEngineService {
     }
 
     private List<String> matchRuleVariable(Rule rule, List<String> rulewithvariable) {
-        //Pattern Matching for the variable to be replaced
         Pattern regex = Pattern.compile("\\{(.*?)\\}");
         Matcher regexMatcher = regex.matcher(rule.condition);
         while (regexMatcher.find()) {
