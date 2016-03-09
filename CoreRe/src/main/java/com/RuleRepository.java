@@ -1,7 +1,9 @@
 package com;
 
 
+import org.springframework.data.domain.Sort;
 import org.springframework.data.mongodb.repository.MongoRepository;
+import org.springframework.data.mongodb.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -14,7 +16,10 @@ public interface RuleRepository extends MongoRepository<Rule,String> {
 //    public List<Request> findByAgeBetween(Integer lowAge, Integer highAge);
 //    public List<Request> findByAgeGreaterThan(Integer age);
 //    public List<Request> findByAgeLowerThan(Integer age);
+    //public List<Rule> sortByPriority(List<Rule> rules);
+    //public List<Rule> findAll(Sort sort);
     public String deleteByRuleId(String ruleId);
+    List<Rule> findAll(Sort sort);
 
 
 }

@@ -29,7 +29,7 @@ public class ApplicationConfiguration {
         @Bean
     //@Value("#{systemProperties.databaseName}")
     MongoDbFactory mongoDbFactory() throws Exception {
-        System.out.println("Name"+dbname);
+
         return new SimpleMongoDbFactory(new MongoClient(), dbname);
     }
 

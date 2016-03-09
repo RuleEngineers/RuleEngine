@@ -1,8 +1,16 @@
 package com;
 
 
+import groovy.util.Eval;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
+
+import java.lang.reflect.Field;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 @Document(collection = "rules")
 public class Rule {
@@ -31,19 +39,32 @@ public class Rule {
         this.outputPath = outputPath;
     }
 
+    public Integer getPriority() {
+        return priority;
+    }
+
+    public void setPriority(Integer priority) {
+        this.priority = priority;
+    }
+
+
     @Id
     String ruleId;
 
     String condition;
     String outputPath;
 
+    @Indexed
+    Integer priority;
+
     public Rule() {
 
     }
 
-    public Rule(String condition, String outputPath) {
+    public Rule(String condition, String outputPath,Integer priority) {
         this.condition = condition;
         this.outputPath = outputPath;
+        this.priority = priority;
     }
 
     @Override
@@ -67,5 +88,9 @@ public class Rule {
                 .append(outputPath)
                 .toHashCode();
     }
+
+
+
+
 }
 

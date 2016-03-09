@@ -20,6 +20,8 @@ public class RuleEngineServiceTest {
 
     @Autowired
     RuleRepository ruleRepository;
+    @Autowired
+    RuleOperations ruleOperations;
 
     @Before
     public void setup(){
@@ -28,10 +30,10 @@ public class RuleEngineServiceTest {
 
     @Test
     public void shouldSaveGivenRule(){
-        RuleEngineService ruleEngineService = new RuleEngineService(ruleRepository);
+        RuleEngineService ruleEngineService = new RuleEngineService(ruleRepository,ruleOperations);
         Request request=new Request("/abc",18,"F","Delhi");
-        ruleEngineService.addRule("{age}<15 && {age}>10","/kurta.html");
-        ruleEngineService.addRule("{city}.equalsIgnoreCase('DELHi') && {age}>10","/saree.html");
+        ruleEngineService.addRule("{age}>15 && {age}>10","/kurta.html",2);
+        ruleEngineService.addRule("{city}.equalsIgnoreCase('DELHi') && {age}>10","/saree.html",1);
         ResponseUrl responseUrl = ruleEngineService.conditionEvaluate(request);
         Assert.assertEquals("/saree.html",responseUrl.outputPath);
     }
