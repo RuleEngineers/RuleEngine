@@ -2,23 +2,26 @@ package com;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
+
 import java.lang.String.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-@Component
+@Service
 public class RuleParsingService {
 
-    private RuleRepository ruleRepository;
+    private RuleEngineService ruleEngineService;
 
 
     @Autowired
-    public RuleParsingService(RuleRepository ruleRepository) {
-        this.ruleRepository = ruleRepository;
+    public RuleParsingService(RuleEngineService ruleEngineService) {
+        this.ruleEngineService = ruleEngineService;
     }
 
-    public void parseRule(String string)
+    public String parseRule(String string)
     {
+        string.replaceAll("WHEN",";");
         string.replaceAll("THEN", ";");
         string.replaceAll("ISGREATERTHAN",">");
         string.replaceAll("ISLESSERTHAN","<");
@@ -26,23 +29,29 @@ public class RuleParsingService {
         string.replaceAll("ISNOTEQUALS","!=");
         string.replaceAll("AND","&&");
         string.replaceAll("OR","||");
-        String condition=getConition(string);
-        String outputPath=getOutputPath(string);
+       // String condition=getCondition(string);
+       // String outputPath=getOutputPath(string);
+       // System.out.println(condition);
+       // System.out.println(outputPath);
+       // ruleEngineService.addRule(condition,outputPath,10);
         System.out.println(string);
+
+        return "success";
 
     }
 
     private String getOutputPath(String string) {
 
         String condition[]=string.split(";");
-        return condition[0];
+        System.out.println(condition);
+        return condition[1];
 
     }
 
 
-    private String getConition(String string) {
+    private String getCondition(String string) {
         String condition[]=string.split(";");
-        return condition[1];
+        return condition[0];
     }
 
 }

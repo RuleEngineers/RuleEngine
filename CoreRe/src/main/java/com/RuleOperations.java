@@ -49,8 +49,6 @@ public class RuleOperations implements IRuleInterface {
                 }
 
                 rule.condition = replaceAttributeValue(reqAttributeValue[next], rule,next);
-
-
                 next++;
             }
 

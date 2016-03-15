@@ -5,15 +5,13 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.PropertySource;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import java.util.*;
-
 import static junit.framework.TestCase.assertEquals;
 
-@ContextConfiguration(classes = {ApplicationConfiguration.class})
+//@ContextConfiguration(classes = {ApplicationConfiguration.class})
+@ContextConfiguration(loader = WebContextLoader.class, locations = {"file:src/main/webapp/WEB-INF/Core-servlet.xml"})
 @RunWith(SpringJUnit4ClassRunner.class)
 //@PropertySource("classpath:application.properties")
 public class RuleEngineServiceTest {
@@ -22,13 +20,15 @@ public class RuleEngineServiceTest {
     RuleRepository ruleRepository;
     @Autowired
     RuleOperations ruleOperations;
+    @Autowired
+    RuleEngineService ruleEngineService1;
 
     @Before
     public void setup(){
         ruleRepository.deleteAll();
     }
 
-    @Test
+    /*@Test
     public void shouldSaveGivenRule(){
         RuleEngineService ruleEngineService = new RuleEngineService(ruleRepository,ruleOperations);
         Request request=new Request("/abc",18,"F","Delhi");
@@ -36,6 +36,13 @@ public class RuleEngineServiceTest {
         ruleEngineService.addRule("{city}.equalsIgnoreCase('DELHi') && {age}>10","/saree.html",1);
         ResponseUrl responseUrl = ruleEngineService.conditionEvaluate(request);
         Assert.assertEquals("/saree.html",responseUrl.outputPath);
+    }*/
+
+    @Test
+    public  void shouldParseRule(){
+        RuleParsingService ruleParsingService = new RuleParsingService(ruleEngineService1);
+        String answer = ruleParsingService.parseRule("WHEN {age}ISEQUALS3 THEN g.html");
+        Assert.assertEquals("success1",answer);
     }
 
 
