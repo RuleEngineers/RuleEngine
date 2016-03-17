@@ -21,21 +21,19 @@ public class RuleParsingService {
 
     public String parseRule(String string)
     {
-        string.replaceAll("WHEN",";");
-        string.replaceAll("THEN", ";");
-        string.replaceAll("ISGREATERTHAN",">");
-        string.replaceAll("ISLESSERTHAN","<");
-        string.replaceAll("ISEQUALS",".equalsIgnoreCase");
-        string.replaceAll("ISNOTEQUALS","!=");
-        string.replaceAll("AND","&&");
-        string.replaceAll("OR","||");
-       // String condition=getCondition(string);
-       // String outputPath=getOutputPath(string);
-       // System.out.println(condition);
-       // System.out.println(outputPath);
-       // ruleEngineService.addRule(condition,outputPath,10);
-        System.out.println(string);
-
+        string=string.replaceAll("WHEN",";");
+        string=string.replaceAll("THEN", ";");
+        string=string.replaceAll("ISGREATERTHAN",">");
+        string=string.replaceAll("ISLESSERTHAN","<");
+        string=string.replaceAll("ISEQUALS",".equalsIgnoreCase");
+        string=string.replaceAll("ISNOTEQUALS","!=");
+        string=string.replaceAll("AND","&&");
+        string=string.replaceAll("OR","||");
+        String condition=getCondition(string);
+        String outputPath=getOutputPath(string);
+        System.out.println(condition);
+        System.out.println(outputPath);
+        ruleEngineService.addRule(condition,outputPath,10);
         return "success";
 
     }
@@ -43,7 +41,6 @@ public class RuleParsingService {
     private String getOutputPath(String string) {
 
         String condition[]=string.split(";");
-        System.out.println(condition);
         return condition[1];
 
     }
@@ -51,7 +48,6 @@ public class RuleParsingService {
 
     private String getCondition(String string) {
         String condition[]=string.split(";");
-        return condition[0];
+        return condition[2];
     }
-
 }

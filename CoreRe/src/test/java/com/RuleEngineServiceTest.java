@@ -42,7 +42,7 @@ public class RuleEngineServiceTest {
     public  void shouldParseRule(){
         RuleParsingService ruleParsingService = new RuleParsingService(ruleEngineService1);
         String answer = ruleParsingService.parseRule("WHEN {age}ISEQUALS3 THEN g.html");
-        Assert.assertEquals("success1",answer);
+        Assert.assertEquals("success",answer);
     }
 
 
