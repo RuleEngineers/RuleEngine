@@ -19,44 +19,33 @@ public class RuleEngineServiceTest {
     @Autowired
     RuleRepository ruleRepository;
     @Autowired
-    RuleOperations ruleOperations;
+    GetRuleVariableValue getRuleVariableValue;
     @Autowired
     RuleEngineService ruleEngineService1;
+    @Autowired
+    RuleParser ruleParser;
+    @Autowired
+    RuleEvaluator ruleEvaluator;
+    @Autowired
+    GetRule getRule;
+    @Autowired
+    ResponseGenerator responseGenerator;
 
     @Before
     public void setup(){
         ruleRepository.deleteAll();
     }
 
-    /*@Test
-    public void shouldSaveGivenRule(){
-        RuleEngineService ruleEngineService = new RuleEngineService(ruleRepository,ruleOperations);
-        Request request=new Request("/abc",18,"F","Delhi");
-        ruleEngineService.addRule("{age}>15 && {age}>10","/kurta.html",2);
-        ruleEngineService.addRule("{city}.equalsIgnoreCase('DELHi') && {age}>10","/saree.html",1);
-        ResponseUrl responseUrl = ruleEngineService.conditionEvaluate(request);
-        Assert.assertEquals("/saree.html",responseUrl.outputPath);
-    }*/
-
     @Test
-    public  void shouldParseRule(){
-        RuleParsingService ruleParsingService = new RuleParsingService(ruleEngineService1);
-        String answer = ruleParsingService.parseRule("WHEN {age}ISEQUALS3 THEN g.html");
-        Assert.assertEquals("success",answer);
+    public void shouldSaveGivenRule(){
+        RuleEngineService ruleEngineService = new RuleEngineService(ruleRepository, getRuleVariableValue, ruleParser, ruleEvaluator, getRule,responseGenerator);
+        Request request=new Request("/abc",18,"F","Delhi");
+        ruleEngineService.addParsedRule("WHEN {city}.equalsIgnoreCase('Blore') WEIGHT0.5 AND {age}>10 WEIGHT0.5 THEN/kurta.html PRIORITY1");
+        ruleEngineService.addParsedRule("WHEN {city}.equalsIgnoreCase('DELHi') WEIGHT0.5 AND {age}>10 WEIGHT0.5 THEN/saree.html PRIORITY2");
+        ruleEngineService.addParsedRule("WHEN {city}.equalsIgnoreCase('DELHi') WEIGHT0.5 AND {age}>10 WEIGHT0.5 THEN/legging.html PRIORITY12");
+        ResponseUrl responseUrl = ruleEngineService.evaluateRule(request);
+        String actual = responseUrl.outputPath;
+        Assert.assertEquals("/saree.html",actual);
     }
-
-
-    /*@Test
-    public void shouldEvaluateRules(){
-        RuleEngineService ruleEngineService = new RuleEngineService(ruleRepository);
-        ruleEngineService.addRule("{age}>10", "/kurta.html");
-        ruleEngineService.addRule("{age}<10", "/saree.html");
-        ruleEngineService.addRule("{age}<10 && {city}.equals('xyz')", "/abc.html");
-        ruleEngineService.addRule("{city}.equals('delhi')", "/xyz.html");
-
-        Request request1 = new Request("", 10, "", "delhi");
-        Request request2 = new Request("", 40, "", "abc");
-        Assert.assertEquals("/xyz.html", ruleEngineService.conditionEvaluate(request1).outputPath);
-        Assert.assertEquals("/kurta.html", ruleEngineService.conditionEvaluate(request2).outputPath);
-    }*/
+    //Need to write an integretion test for shouldEvaluateRules.
 }

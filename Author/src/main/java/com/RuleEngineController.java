@@ -31,7 +31,7 @@ public class RuleEngineController {
     @ResponseBody
     public String addRule(@RequestBody Rule rule) {
         System.out.println("in post");
-        ruleEngineService.addRule(rule.condition, rule.outputPath,1);
+        ruleEngineService.addRule(rule.condition, rule.outputPath,1,0.0);
        return "success";
     }
 

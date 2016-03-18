@@ -48,7 +48,7 @@ public class RuleEngineControllerTest {
 
     @Test
     public void shouldAddRule() throws Exception {
-        Rule rule = new Rule("10<20", "/path",1);
+        Rule rule = new Rule("10<20", "/path",1,0.0);
         String ruleJson = new Gson().toJson(rule);
         mockMvc.perform(post("/api/rule").content(ruleJson).contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
@@ -67,7 +67,7 @@ public class RuleEngineControllerTest {
     @Test
     public void shouldListRules() throws Exception {
         List<Rule> rules = new ArrayList<Rule>();
-        Rule rule = new Rule("10<20", "/path",1);
+        Rule rule = new Rule("10<20", "/path",1,0.0);
         rules.add(0,rule);
         //rules.add(1,rule);
         when(mockRuleEngineService.listRules()).thenReturn(rules);

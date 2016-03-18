@@ -13,7 +13,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 @Document(collection = "rules")
-public class Rule {
+public class Rule implements Comparable{
 
     public String getRuleId() {
         return ruleId;
@@ -47,24 +47,31 @@ public class Rule {
         this.priority = priority;
     }
 
+    public Double getWeight() {
+        return weight;
+    }
+
+    public void setWeight(Double weight) {
+        this.weight = weight;
+    }
 
     @Id
     String ruleId;
 
     String condition;
     String outputPath;
-
-    @Indexed
     Integer priority;
+    Double weight;
 
     public Rule() {
 
     }
 
-    public Rule(String condition, String outputPath,Integer priority) {
+    public Rule(String condition, String outputPath,Integer priority,Double weight) {
         this.condition = condition;
         this.outputPath = outputPath;
         this.priority = priority;
+        this.weight=weight;
     }
 
     @Override
@@ -89,8 +96,30 @@ public class Rule {
                 .toHashCode();
     }
 
+    @Override
+    public int compareTo(Object o) {
+        Rule givenRule = (Rule) o;
 
+        int result = 0;
 
+        if (this.weight.equals(givenRule.weight)) {
+            if(this.priority > givenRule.priority) {
+                result = -1;
+            }
+            else
+            {
+                result = 1;
+            }
+        }
+        else if(this.weight > givenRule.weight) {
+            result = 1;
+        }
+        else
+        {
+            result=-1;
+        }
 
+        return result;
+    }
 }
 

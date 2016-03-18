@@ -1,36 +1,41 @@
 package com;
 
-import groovy.util.Eval;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.propertyeditors.StringArrayPropertyEditor;
-import org.springframework.data.domain.Sort;
-import org.springframework.data.mongodb.repository.Query;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
-import javax.xml.datatype.DatatypeConstants;
-import javax.xml.ws.Response;
-import java.lang.reflect.Field;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
-@Component
+@Service
 public class RuleEngineService {
 
 
     private RuleRepository ruleRepository;
-    private RuleOperations ruleOperations;
+    private GetRuleVariableValue getRuleVariableValue;
+    private RuleParser ruleParser;
+    private RuleEvaluator ruleEvaluator;
+    private GetRule getRule;
+    private ResponseGenerator responseGenerator;
 
     @Autowired
-    public RuleEngineService(RuleRepository ruleRepository, RuleOperations ruleOperations) {
+    public RuleEngineService(RuleRepository ruleRepository, GetRuleVariableValue getRuleVariableValue, RuleParser ruleParser, RuleEvaluator ruleEvaluator, GetRule getRule, ResponseGenerator responseGenerator) {
         this.ruleRepository = ruleRepository;
-        this.ruleOperations = ruleOperations;
+        this.getRuleVariableValue = getRuleVariableValue;
+        this.ruleParser = ruleParser;
+        this.ruleEvaluator = ruleEvaluator;
+        this.getRule = getRule;
+        this.responseGenerator = responseGenerator;
     }
 
 
-    public void addRule(String condition, String outputUrl, Integer priority) {
-        ruleRepository.save(new Rule(condition, outputUrl, priority));
+    public void addRule(String condition, String outputUrl, Integer priority,Double weight) {
+        ruleRepository.save(new Rule(condition, outputUrl, priority, weight));
+    }
+
+    public void addParsedRule(String ruleString)
+    {
+        String ruleCondition = ruleParser.parseRule(ruleString);
+        Rule rule = getRule.getParsedRule(ruleCondition);
+        addRule(rule.condition, rule.outputPath, rule.priority, 0.0);
     }
 
 
@@ -40,35 +45,26 @@ public class RuleEngineService {
     }
 
 
-    public ResponseUrl conditionEvaluate(Request req) {
+    public ResponseUrl evaluateRule(Request req) {
         try {
-
-            List<Rule> rules = ruleRepository.findAll(new Sort(Sort.Direction.ASC, "priority"));
+            List<Rule> rules = ruleRepository.findAll();
             for (Rule rule : rules) {
-                System.out.println(rule);
-                rule.condition = ruleOperations.findRuleValue(req, rule);
-
-                Boolean result = evaluate(rule);
-                if (result.equals(true)) {
-                    return new ResponseUrl(rule.outputPath);
-                }
+                rule.condition = getRuleVariableValue.findRuleValue(req, rule);
+                rule = ruleEvaluator.ruleEvaluate(rule);
             }
-        } catch (Exception e) {
+            ResponseUrl response = responseGenerator.getResponse(rules);
+            return response;
+        }
+        catch (Exception e) {
         }
         return new ResponseUrl("/default.html");
     }
 
-    private Boolean evaluate(Rule rule) {
-        if ((Boolean) (Eval.me(rule.condition)).equals(true)) {
-            return true;
-        }
-        return false;
-    }
-
-
     public List<Rule> listRules() {
+
         return ruleRepository.findAll();
     }
+
 }
 
 

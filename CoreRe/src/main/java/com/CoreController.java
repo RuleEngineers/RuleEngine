@@ -17,21 +17,19 @@ import java.io.PrintWriter;
 @EnableWebMvc
 public class CoreController {
 
-    private RuleParsingService ruleParsingService;
-
-    public CoreController() {
-    }
+    private RuleEngineService ruleEngineService;
 
     @Autowired
-    public CoreController(RuleParsingService ruleParsingService) {
-        this.ruleParsingService = ruleParsingService;
+    public CoreController(RuleEngineService ruleEngineService) {
+
+        this.ruleEngineService = ruleEngineService;
     }
 
-    @CrossOrigin(origins = "*")
+    //@CrossOrigin(origins = "*")
     @RequestMapping(value = "/enterRule", method = RequestMethod.POST)
     @ResponseBody
     public void enterRule(@RequestBody String result) {
 
-        ruleParsingService.parseRule(result);
+        ruleEngineService.addParsedRule(result);
     }
 }
