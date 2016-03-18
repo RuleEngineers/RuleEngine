@@ -4,6 +4,9 @@ import com.google.gson.Gson;
 import java.lang.reflect.Type;
 
 import com.google.gson.reflect.TypeToken;
+import com.tw.ruleengine.Rule;
+import com.tw.ruleengine.RuleEngineController;
+import com.tw.ruleengine.service.RuleEngineService;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -30,7 +33,7 @@ import static org.springframework.test.web.servlet.setup.MockMvcBuilders.standal
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @WebAppConfiguration
-@ContextConfiguration(loader = WebContextLoader.class, locations = {"file:src/main/webapp/WEB-INF/Core-servlet.xml"})
+@ContextConfiguration(loader = com.tw.ruleengine.controller.WebContextLoader.class, locations = {"file:src/main/webapp/WEB-INF/Core-servlet.xml"})
 public class RuleEngineControllerTest {
 
     @Mock
