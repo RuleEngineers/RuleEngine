@@ -18,7 +18,7 @@ public class RuleParser
         ruleString = ruleString.replaceAll("THEN", ";");
         ruleString = ruleString.replaceAll("ISGREATERTHAN", ">");
         ruleString = ruleString.replaceAll("ISLESSERTHAN", "<");
-        ruleString = ruleString.replaceAll("ISEQUALS", ".equalsIgnoreCase");
+        ruleString = ruleString.replaceAll("ISEQUALS",".equalsIgnoreCase");
         ruleString = ruleString.replaceAll("ISNOTEQUALS", "!=");
         ruleString = ruleString.replaceAll("AND", "&");
         ruleString = ruleString.replaceAll("PRIORITY", ";");

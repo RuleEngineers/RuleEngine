@@ -46,7 +46,6 @@ public class RuleEngineControllerTest {
         initMocks(this);
         mockMvc = standaloneSetup(new RuleEngineController(mockRuleEngineService))
                 .build();
-
     }
 
     @Test
@@ -64,7 +63,6 @@ public class RuleEngineControllerTest {
         mockMvc.perform(delete("/api/rule/56c557100239373133846ea5"))
                 .andExpect(status().isOk())
                 .andExpect(view().name("deleted"));
-
     }
 
     @Test

@@ -35,7 +35,7 @@ public class WebAppController {
         Type mapType = new TypeToken<Map<String, String>>() {}.getType();
         String json = gson.toJson(allRequestParams, mapType);
         Request request = gson.fromJson(json,Request.class);
-        String path= ruleEngineService.evaluateRule(request).outputPath;
+        String path= ruleEngineService.evaluateRule(request).getOutputPath();
         path="http://localhost"+path;
         return new ModelAndView("redirect:" + path);
     }

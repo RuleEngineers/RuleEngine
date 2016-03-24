@@ -25,13 +25,13 @@ public class RuleEngineServiceTest {
     @Autowired
     RuleRepository ruleRepository;
     @Autowired
-    GetRuleVariableValue getRuleVariableValue;
+    RuleVariableValue ruleVariableValue;
     @Autowired
     RuleParser ruleParser;
     @Autowired
     RuleEvaluator ruleEvaluator;
     @Autowired
-    GetRule getRule;
+    RuleGenerator ruleGenerator;
     @Autowired
     ResponseGenerator responseGenerator;
 
@@ -42,11 +42,12 @@ public class RuleEngineServiceTest {
 
     @Test
     public void shouldSaveGivenRule(){
-        RuleEngineService ruleEngineService = new RuleEngineService(ruleRepository, getRuleVariableValue, ruleParser, ruleEvaluator, getRule,responseGenerator);
-        Request request=new Request("/abc",18,"F","Delhi");
-        ruleEngineService.addParsedRule("WHEN {city}.equalsIgnoreCase('Blore') WEIGHT0.5 AND {age}>10 WEIGHT0.5 THEN/kurta.html PRIORITY1");
-        ruleEngineService.addParsedRule("WHEN {city}.equalsIgnoreCase('DELHi') WEIGHT0.5 AND {age}>10 WEIGHT0.5 THEN/saree.html PRIORITY2");
-        ruleEngineService.addParsedRule("WHEN {city}.equalsIgnoreCase('DELHi') WEIGHT0.5 AND {age}>10 WEIGHT0.5 THEN/legging.html PRIORITY12");
+        RuleEngineService ruleEngineService = new RuleEngineService(ruleRepository, ruleVariableValue, ruleParser, ruleEvaluator, ruleGenerator,responseGenerator);
+        Request request=new Request("/abc",8,"F","Blore1");
+        //ruleEngineService.addParsedRule("WHEN {city}.equalsIgnoreCase('Blore') WEIGHT0.5 AND {age}>10 WEIGHT0.5 THEN/kurta.html PRIORITY1");
+        //ruleEngineService.addParsedRule("WHEN {city}.equalsIgnoreCase('DELHi') WEIGHT0.5 AND {age}>10 WEIGHT0.5 THEN/saree.html PRIORITY2");
+        //ruleEngineService.addParsedRule("WHEN {city}.equalsIgnoreCase('DELHi') WEIGHT0.5 AND {age}>10 WEIGHT0.5 THEN/legging.html PRIORITY12");
+        ruleEngineService.addParsedRule("WHEN {age} ISGREATERTHAN 10 WEIGHT 0.5 AND  {city} ISEQUALS('Blore1') WEIGHT 0.5 THEN/kurta.html PRIORITY1");
         ResponseUrl responseUrl = ruleEngineService.evaluateRule(request);
         System.out.println("ru"+responseUrl);
         String actual = responseUrl.getOutputPath();

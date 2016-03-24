@@ -17,7 +17,7 @@ public class TomcatMain {
         AnnotationConfigWebApplicationContext context = new AnnotationConfigWebApplicationContext();
         context.scan("com");
         Tomcat tomcat = new Tomcat();
-        tomcat.setPort(9090);
+        tomcat.setPort(9091);
         Context rootCtx = tomcat.addContext("/", new File("").getAbsolutePath());
         DispatcherServlet dispatcher = new DispatcherServlet(context);
         Tomcat.addServlet(rootCtx, "SpringMVC", dispatcher);

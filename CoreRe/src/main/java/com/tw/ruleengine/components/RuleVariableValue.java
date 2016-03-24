@@ -11,7 +11,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 @Component
-public class GetRuleVariableValue implements IRuleInterface {
+public class RuleVariableValue implements IRuleInterface {
 
     private List<String> rulewithvariable = new ArrayList<String>();
     private List<String> param = new ArrayList<String>();

@@ -10,7 +10,7 @@ public class ResponseUrl {
         this.outputPath = outputPath;
     }
 
-    String outputPath;
+    private String outputPath;
 
     public ResponseUrl( String outputPath){
         this.outputPath = outputPath;

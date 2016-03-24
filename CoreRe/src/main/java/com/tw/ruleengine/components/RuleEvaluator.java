@@ -25,9 +25,11 @@ public class RuleEvaluator {
             if(eval.equals(true))
             {
                 weight += Double.parseDouble(singleCondition[1]);
+                System.out.println(weight);
             }
         }
         rule.setWeight(weight);
+        System.out.println(rule.getWeight());
         return rule;
     }
 

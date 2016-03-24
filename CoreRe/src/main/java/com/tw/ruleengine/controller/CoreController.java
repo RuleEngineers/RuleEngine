@@ -19,7 +19,7 @@ public class CoreController {
         this.ruleEngineService = ruleEngineService;
     }
 
-    //@CrossOrigin(origins = "*")
+    @CrossOrigin(origins = "*")
     @RequestMapping(value = "/enterRule", method = RequestMethod.POST)
     @ResponseBody
     public void enterRule(@RequestBody String result) {

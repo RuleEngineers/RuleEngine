@@ -30,7 +30,7 @@ public class RuleEngineController {
     @ResponseBody
     public String addRule(@RequestBody Rule rule) {
         System.out.println("in post");
-        ruleEngineService.addRule(rule.getCondition, rule.outputPath,1,0.0);
+        //ruleEngineService.addRule(rule.getCondition(), rule.getOutputPath(),1,0.0);
        return "success";
     }
 
@@ -44,28 +44,5 @@ public class RuleEngineController {
     public @ResponseBody List<Rule> listRule(){
 
         return ruleEngineService.listRules();
-    }
-
-    @RequestMapping(value = "/login", method = RequestMethod.POST)
-    public void doPost(HttpServletRequest req, HttpServletResponse res) throws IOException
-    {
-
-        PrintWriter pw = res.getWriter();
-        String name = req.getParameter("usr");
-        String pwd = req.getParameter("pwd");
-        res.setContentType("text/html");
-        if(name == null|| name.equals("")||pwd == null || pwd.equals(""))
-        {
-            pw.println("<h2>Sorry..Could not log you in. Will redirect to main login page.Please wait</h2>");
-            res.setHeader("Refresh","5;http://localhost/login.html");
-        }
-        else
-        {
-            pw.println("<h2>WELCOME  "+ name+"   Please Enter Rules. We will redirect you to the page...</h2>");
-            res.setHeader("Refresh","2;http://localhost/EnterRule.html");
-        }
-
-        pw.close();
-
     }
 }

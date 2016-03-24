@@ -4,7 +4,7 @@ import com.tw.ruleengine.Rule;
 import org.springframework.stereotype.Component;
 
 @Component
-public class GetRule {
+public class RuleGenerator {
 
     public Rule getParsedRule(String ruleString)
     {

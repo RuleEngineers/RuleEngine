@@ -48,12 +48,12 @@ public class Rule implements Comparable{
     }
 
     @Id
-    String ruleId;
+    private String ruleId;
 
-    String getCondition;
-    String outputPath;
-    Integer priority;
-    Double weight;
+    private String getCondition;
+    private String outputPath;
+    private Integer priority;
+    private Double weight;
 
     public Rule() {
 
