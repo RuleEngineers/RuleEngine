@@ -5,4 +5,5 @@ include 'CoreRE'
 findProject(':CoreRE')?.name = 'core'
 include 'WebApp'
 include 'WebApp'
+include 'recommender'
 

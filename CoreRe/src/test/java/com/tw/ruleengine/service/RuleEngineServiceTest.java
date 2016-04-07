@@ -51,7 +51,7 @@ public class RuleEngineServiceTest {
         ResponseUrl responseUrl = ruleEngineService.evaluateRule(request);
         System.out.println("ru"+responseUrl);
         String actual = responseUrl.getOutputPath();
-        Assert.assertEquals("/saree.html",actual);
+        Assert.assertEquals("/kurta.html",actual);
     }
     //Need to write an integretion test for shouldEvaluateRules.
 }
